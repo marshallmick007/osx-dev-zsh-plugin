@@ -69,4 +69,6 @@ request
 
 ## TODO
 
-
+- [ ] Add PID file locations to a user-configurable config file
+- [ ] Support for Unicode symbols
+- [ ] Extensibility for other server processes
