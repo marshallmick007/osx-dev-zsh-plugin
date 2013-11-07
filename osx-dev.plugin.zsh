@@ -44,6 +44,7 @@ function stop-nginx()
 {
   echo -e "Stopping nginx..."
   sudo launchctl stop homebrew.mxcl.nginx
+  sleep 1
   status-nginx
 }
 
