@@ -1,6 +1,6 @@
 
 local MAMPDIR=/Applications/MAMP/bin
-local MYSQLPID=/Applications/MAMP/tmp/mysql/mysql.pid
+local MYSQLPID=/usr/local/var/mysql/Robotop.local.pid
 local APACHEPID=/Applications/MAMP/Library/logs/httpd.pid
 local MONGODBPID=${HOME}/.mongodb/mongodb.pid
 local MONGODBCONF=${HOME}/.mongodb/mongod.conf
@@ -12,7 +12,7 @@ local NGINXPID=/usr/local/var/run/nginx.pid
 local E_PURPLE="\033[0;35m"
 local E_NC="\033[0m"
 local E_RED="\033[1;31m"
-local E_GREEN="\033[1;32m"
+local E_GREEN="\033[0;32m"
 
 local STARTED="${E_GREEN}Started${E_NC}"
 local STOPPED="${E_RED}Stopped${E_NC}"
@@ -24,8 +24,8 @@ function devstatus()
 
   status-nginx
   status-mysql
-  status-apache
-  status-mongodb
+  #status-apache
+  #status-mongodb
 }
 
 function restart-nginx()
@@ -44,12 +44,15 @@ function stop-nginx()
 {
   echo -e "Stopping nginx..."
   sudo launchctl stop homebrew.mxcl.nginx
+  sleep 1
   status-nginx
 }
 
 function start-nginx()
 {
   echo -e "Starting nginx..."
+  echo -e "  May need to run:"
+  echo -e "  ${E_PURPLE}sudo launchctl load /Library/LaunchAgents/homebrew.mxcl.nginx.plist${E_NC}"
   sudo launchctl start homebrew.mxcl.nginx
   sleep 1
   status-nginx
@@ -90,7 +93,7 @@ function status-apache()
 function start-mysql()
 {
   echo -e "Starting MySql..."
-  ${MAMPDIR}/startMysql.sh 1> /dev/null
+  launchctl start homebrew.mxcl.mysql
   sleep 1
   status-mysql
 }
@@ -98,7 +101,7 @@ function start-mysql()
 function stop-mysql()
 {
   echo -e "Stopping MySql..."
-  ${MAMPDIR}/stopMysql.sh 1> /dev/null
+  launchctl stop homebrew.mxcl.mysql
   sleep 1
   status-mysql
 }
