@@ -6,6 +6,11 @@ on my OSX install. It was cobbled together from my previous
 
 ## Instalation
 
+### Antigen
+
+Add `antigen bundle marshallmick007/osx-dev-zsh-plugin` to your `.zshrc`
+
+### oh-my-zsh
 Fork this repo and add a git submodule to your Oh-My-ZSH
 `custom/plugins` directory
 
@@ -17,6 +22,10 @@ git submodule add git@github.com:marshallmick007/osx-dev-zsh-plugin.git osx-dev
 ```
 
 Then, add `osx-dev` to your loaded plugins in your `.zshrc` file
+
+### zgen
+
+If you're using [zgen](https://github.com/tarjoilija/zgen), add `zgen load marshallmick007/osx-dev-zsh-plugin` to your .zshrc with your other plugins.
 
 ## Commands
 
