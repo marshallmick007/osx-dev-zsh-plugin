@@ -4,7 +4,7 @@ This plugin adds some commands for maintaining various server programs
 on my OSX install. It was cobbled together from my previous
 [mamp-control](https://github.com/marshallmick007/mamp-control) project, and various other sources, and "Works On My Machine™"
 
-## Instalation
+## Installation
 
 ### Antigen
 
@@ -71,7 +71,7 @@ restart-mongodb
 status-mongodb
 ```
 
-## Constibuting
+## Contributing
 
 Any additions or bug-fixes are welcome, just create an issue and a Pull
 request
